@@ -1,4 +1,6 @@
 import art
+
+
 def caesar(text, shift_to_move, cipher_direction):
     message=""
     if(direction=="encode"):
@@ -28,8 +30,12 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'
             ,'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 print(art.logo)
 execute=True
+enable=True
 while execute:
-    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+    while enable==True:
+        direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
+        if(direction=="encode" or direction=="decode"):
+            enable=False
     text_input = input("Type your message:\n").lower()
     shift = int(input("Type the shift number:\n"))
     if shift>26:
@@ -38,4 +44,6 @@ while execute:
     answer=input("Would you like to encode/decode again? Type yes or no: ").lower()
     if(answer=="no"):
         execute=False
+    else:
+        enable=True
     
